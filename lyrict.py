@@ -407,6 +407,7 @@ def embed_lyrics_mp3(mp3_file, lyrics=None, unsynced_lyrics=None, overwrite=Fals
         audio = MP3(mp3_file)
         audio.add_tags()
     changed = False
+    omitted_lines = []
 
     # SYLT frame
     if not any(isinstance(frame, SYLT) for frame in audio.tags.values()) or overwrite: # Embed if lyrics are not already embedded or when overwrite is True
